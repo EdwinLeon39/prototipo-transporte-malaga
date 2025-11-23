@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚍 Prototipo Transporte Málaga</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- MENÚ SUPERIOR -->
+    <nav class="navbar">
+        <h2>🚍 Sistema de Transporte de Málaga Santander</h2>
+    </nav>
+
+    <main>
+
+        <!-- SECCIÓN CONSULTAR RUTA -->
+        <section class="card">
+            <h2>🔎 Consultar ruta</h2>
+
+            <label for="ruta">Selecciona una ruta:</label>
+            <select id="ruta">
+                <option value="Málaga – Concepción">🚌 Málaga – Concepción</option>
+                <option value="Málaga – San José de Miranda">🚐 Málaga – San José de Miranda</option>
+                <option value="Málaga – Capitanejo">🚍 Málaga – Capitanejo</option>
+                <option value="Málaga - Enciso">🚐 Malaga - Enciso</option>
+                <option value="Servicio Urbano">🚖 Servicio Urbano</option>
+                <option value="Zona Rural - Veredas">🚜 Zona Rural</option>
+            </select>
+
+            <label for="parada">Parada/Subida:</label>
+            <select id="parada">
+                <option value="Terminal">Terminal</option>
+                <option value="Parque Principal">Parque Principal</option>
+                <option value="Hospital">Hospital</option>
+                <option value="UIS">UIS</option>
+                <option value="Barrio Tajamar">Barrio Tajamar</option>
+            </select>
+
+            <label for="horario">Horario estimado:</label>
+            <input type="time" id="horario">
+
+            <button onclick="consultarRuta()">Consultar</button>
+
+            <div id="resultado" class="resultado oculto"></div>
+        </section>
+
+        <!-- SECCIÓN MAPA SIMULADO -->
+        <section class="card">
+            <h2>🗺️ Mapa Interactivo – Málaga Santander</h2>
+
+            <div class="mapa-interactivo">
+                <iframe width="100%"
+                        height="350"
+                        style="border:0; border-radius:10px;"
+                        loading="lazy"
+                        allowfullscreen
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4384535425346!2d-72.73213802509948!3d6.699189393322225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e680df81c49c8bb%3A0x8a4e3b27d432c3ba!2sM%C3%A1laga%2C%20Santander!5e0!3m2!1ses-419!2sco!4v1700179121324">
+                </iframe>
+            </div>
+
+            <p class="nota">Puedes mover, acercar o alejar el mapa para explorar las rutas del municipio, o a donde quieres llegar.</p>
+        </section>
+
+
+        <!-- SECCIÓN HORARIOS -->
+        <section class="card">
+            <h2>⏰ Horarios estimados</h2>
+
+            <table class="tabla">
+                <tr>
+                    <th>Ruta</th>
+                    <th>Primer viaje</th>
+                    <th>Último viaje</th>
+                    <th>Frecuencia</th>
+                </tr>
+                <tr>
+                    <td>Málaga – Concepción</td>
+                    <td>5:30 AM</td>
+                    <td>7:00 PM</td>
+                    <td>Cada 45 min</td>
+                </tr>
+                <tr>
+
+                    <td>Málaga – San José de Miranda</td>
+                    <td>6:00 AM</td>
+                    <td>6:00 PM</td>
+                    <td>Cada 1 hora</td>
+                </tr>
+                <tr>
+                    <td>Málaga – Capitanejo</td>
+                    <td>6:30 AM</td>
+                    <td>5:00 PM</td>
+                    <td>2 viajes día</td>
+                </tr>
+                <tr>
+                    <td>Málaga – Cerrito</td>
+                    <td>6:30 AM</td>
+                    <td>5:00 PM</td>
+                    <td>2 viajes día</td>
+                </tr>
+                <tr>
+                    <td>Málaga – Enciso</td>
+                    <td>6:30 AM</td>
+                    <td>5:00 PM</td>
+                    <td>4 viajes día</td>
+                </tr>
+                <tr>
+
+                    <td>Servicio Urbano</td>
+                    <td>5:00 AM</td>
+                    <td>9:00 PM</td>
+                    <td>📌 Cada 20 min</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <!-- SECCIÓN REPORTE -->
+        <section class="card">
+            <h2>⚠️ Reportar problema</h2>
+
+            <label for="problema">Tipo de problema:</label>
+            <select id="problema">
+                <option value="Demoras excesivas">🕒 Demoras excesivas</option>
+                <option value="No pasó el bus">🚫 No pasó el bus</option>
+                <option value="Sobrecupo">😡 Sobrecupo</option>
+                <option value="Falta de información">📵 Falta de información</option>
+                <option value="Conductor grosero">😠 Conductor grosero</option>
+                <option value="Ruta confusa">🗺️ Ruta confusa</option>
+                <option value="Otro">💬 Otro</option>
+            </select>
+
+            <label for="comentario">Descripción del problema:</label>
+            <textarea id="comentario"></textarea>
+
+            <button onclick="enviarReporte()">Enviar reporte</button>
+            <div id="mensaje" class="mensaje oculto"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2025 – Prototipo de Sistema de Transporte para Málaga
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
